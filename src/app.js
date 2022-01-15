@@ -15,3 +15,5 @@ class AppController {
         this.express.use(require('./routes'))
     }
 }
+
+module.exports = new AppController().express
