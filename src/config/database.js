@@ -1,9 +1,9 @@
 module.exports = {
   host: '127.0.0.1',
-  username: 'postgress',
+  username: 'postgres',
   password: '123456',
   database: 'nodeteste',
-  dialect: 'postgress',
+  dialect: 'postgres',
   operatorAliases: false,
   logging: false,
   define: {
