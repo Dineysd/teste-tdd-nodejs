@@ -1,0 +1,7 @@
+{
+  "name": "teste-tdd-nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Dineysd/teste-tdd-nodejs.git",
+  "license": "MIT"
+}
