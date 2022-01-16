@@ -1,4 +1,5 @@
 const bcryt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 module.exports = (sequelize, DataType) => {
     const User = sequelize.define("User", {
         name: DataType.STRING,
@@ -13,6 +14,14 @@ module.exports = (sequelize, DataType) => {
                 } 
         }}
     });
+
+    User.prototype.verificaPassword = function(password){
+        return bcryt.compare(password, this.password_hash)
+    }
+
+    User.prototype.gerarToken = function(){
+        return jwt.sign({id: this.id}, process.env.APP_SECRET)
+    }
 
     return User;
 }
