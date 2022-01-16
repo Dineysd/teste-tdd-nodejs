@@ -50,4 +50,38 @@ describe('Authenticate', () => {
         expect(response.body).toHaveProperty('token');
 
     });
+
+    it('deve permitir acesso privado da autenticacão', async () =>{   
+        const usertest = await factory.create('User');
+
+        const response = await request(app)
+        .get('/dashboard')
+        .set("Authorization", `Bearer ${usertest.gerarToken()}`)
+
+        expect(response.status).toBe(200);
+
+    });
+
+    it('deve não permitir acesso se token não existe', async () =>{   
+        const usertest = await factory.create('User');
+
+        const response = await request(app)
+        .get('/dashboard')
+
+        expect(response.status).toBe(401);
+
+    });
+
+    it('deve não permitir acesso com token invalido', async () =>{   
+        const usertest = await factory.create('User');
+
+        const response = await request(app)
+        .get('/dashboard')
+        .set("Authorization", `Bearer 123456`)
+
+        expect(response.status).toBe(401);
+
+    });
+
+    
 });
