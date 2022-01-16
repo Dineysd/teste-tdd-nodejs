@@ -1,9 +1,10 @@
-const { factory } = require('factory-girl')
-const { User } = require('../src/app/models')
+const { factory } = require('factory-girl');
+const { User } = require('../src/app/models');
+
 
 factory.define('User', User, {
-    name: 'Diney',
-    email: 'diney@sd.com',
+    name: 'diney',
+    email: 'dineysd@gmail.com',
     password: '123456'
 })
 
