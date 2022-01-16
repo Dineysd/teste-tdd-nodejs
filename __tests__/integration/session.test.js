@@ -1,11 +1,12 @@
+const { User } = require('../../src/app/models')
+
+
 describe('Authenticate', () => {
-    it('A rota /authenticate deve retornar um token JWT valido',() => {
+    it('Salvar usuario', async () => {
+        const usettest = await User.create({name: 'diney', email: 'diney@sd.com', password_hash: '123321'});
 
-        const x = 2;
-        const y = 4;
+        console.log(usettest)
 
-        const sum = x + y;
-
-        expect(sum).toBe(6);
+        expect(usettest.email).toBe('diney@sd.com');
     });
 });
