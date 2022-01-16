@@ -1,3 +1,4 @@
 node_modules
 __test__/database.sqlite
 coverage
+.DS_store
